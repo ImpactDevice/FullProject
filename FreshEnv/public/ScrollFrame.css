@@ -1,0 +1,1784 @@
+:root {
+    /* --background-color: #181818;
+    --Secondary-Bg: rgb(49, 49, 49);
+    --Clock-Wrap-Color: white;
+    --faded-primary-color: #797032;
+    --primary-color: #cebf38;
+    --secondary-color: white; */
+    --OG-Pink-Color: #ec366b;
+    --OG-Faded-Color: #feeff4;
+    --OG-Pink-Color2: #ffffff00;
+    --OG-Faded-Color2: #ffffff00;
+
+    /* --Gradient1: rgb(204, 147, 4);
+    --Gradient2: rgb(232, 183, 58); */
+
+    --Gradient1: rgba(75, 192, 192, 1);
+    --Gradient2: rgb(77, 75, 192);
+
+
+    /* Scheme-1 */
+
+    /* --Style1-0: rgb(204, 204, 204);
+    --Style1-1: rgb(230, 224, 218);
+    --Style1-2: rgb(232, 183, 58);
+    --Style1-3: rgb(204, 147, 4);
+    --Style1-4: rgb(60, 61, 55); */
+
+    /* Blue Purple Color Scheme */
+
+    --background-color: rgb(22, 23, 26);
+    --Secondary-Bg: #7c7c7c;
+    /* --faded-primary-color: #797032; */
+    --primary-color: #31a5c8;
+    --secondary-color: #974bae;
+
+    --Gradient1: #31a5c8;
+    --Gradient2: #974bae;
+
+    /* Random Colors */
+    --Switch-Color: #2d2936;
+
+    --a: rgba(75, 192, 192, 0.2);
+    --b:   rgba(75, 192, 192, 1);
+    --b:   rgb(77, 75, 192);
+
+
+    /* --background-color: #181818;
+    --Secondary-Bg: rgb(49, 49, 49);
+    --Clock-Wrap-Color: white;
+    --faded-primary-color: #797032;
+    --primary-color: #cebf38;
+    --secondary-color: white; */
+}
+
+
+
+
+
+
+body {
+    margin: 0;
+    /* padding-left: 5%; */
+    overflow: hidden;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    
+}
+
+/* Top Style 2*/
+
+.Top-Style-2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+
+    /* New Testing Scrolling */
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.Body-Style-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+}
+
+.Body-Style-2::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.Category-Header-Style-2 {
+    color: white;
+    font-size: 3em;
+    margin-top: 1em;
+    margin-left: 5%;
+}
+
+.Option-Container-Style-2 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    
+}
+
+.Title-Style-2 {
+    color: white;
+    /* font-size: 1.5em; */
+    /* margin-top: 5px;
+    margin-left: 20px; */
+    /* padding: 10px 20px; */
+    margin: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* text-align: center; */
+}
+
+/* .Input-Value-Style-2 {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 5%;
+    width: 90%;
+} */
+
+/* Style 2 Radio Buttons */
+/* Add More Style Later To Make it look better */
+
+.Option-Radio-Style-2 {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.Option-Radio-Style-0 {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 10px 20px;
+    
+}
+
+.radio-style {
+    display: none;
+}
+
+.Radio-Label-Style-2 {
+    display: inline-block;
+    /* width: 6.25em; */
+    width: 100px;
+    /* height: 2.8em; */
+    height: 45px;
+    /* line-height: 2.8em; */
+    line-height: 45px;
+    text-align: center;
+    background-color: #000000;
+    color: #a0a0a0;
+    cursor: pointer;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+}
+
+.Radio-Label-Style-0 {
+    display: inline-block;
+    /* width: 6.25em; */
+    width: 100px;
+    /* height: 2.8em; */
+    height: 45px;
+    /* line-height: 2.8em; */
+    line-height: 45px;
+    text-align: center;
+    background-color: #000000;
+    color: #a0a0a0;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+}
+
+.radio-style:checked + .Radio-Label-Style-2 {
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    color: #ffffff;
+}
+
+.radio-style:checked + .Radio-Label-Style-0 {
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    color: #ffffff;
+}
+
+/* Style 2 Switch */
+
+.Radio-Box-Style-2 {
+    width: 90%;
+    height: 10%;
+    margin-left: 0%;
+    margin-top: 10%;
+}
+
+/* .Switch-Box-Style-2 {
+    width: 90%;
+    height: 10%;
+    margin-left: 0%;
+}
+
+.Switch-Container-Style-2 {
+	width: 100%;
+	height: 10%;
+	background-color: var(--background-color);
+	position: relative;
+}
+
+
+.Switch-Container-Style-2 input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+
+	left: 5%;
+	right: 0;
+	top: 50%;
+
+	cursor: pointer;
+	outline: none;
+	height: 2.8em;
+	width: 6.25em;
+	background-color: #000000;
+	-webkit-transform: skewX(-7deg);
+	-ms-transform: skewX(-7deg);
+	transform: skewX(-7deg);
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+.Switch-Container-Style-2 input[type="checkbox"]:before {
+	font-size: 1em;
+	content: "OFF";
+	position: absolute;
+	width: 45%;
+	height: 75%;
+	background-color: var(--background-color);
+	color: #a0a0a0;
+	top: 0.42em;
+	left: 0.42em;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.Switch-Container-Style-2 input[type="checkbox"]:checked {
+	background: -o-linear-gradient(315deg, var(--Gradient1), var(--Gradient2));
+	background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+}
+.Switch-Container-Style-2 input[type="checkbox"]:checked:before {
+	content: "ON";
+	left: 50%;
+	color: var(--Gradient2);
+} */
+
+.Switch-Title-Style-2 {
+    margin-bottom: 3.8% !important;
+}
+
+.Switch-Wrapper-Style-2 { 
+    height: 100%;
+    width: 10%;
+}
+
+.Switch-Box-Style-2 { width: 90%; height: 100%; margin-left: 0%; } 
+
+.Switch-Container-Style-2 { width: 100%; height: 100%; background-color: var(--background-color); position: relative; } 
+.Switch-Container-Style-2 input[type="checkbox"] { 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
+    position: relative; 
+    left: 0%; 
+    right: 0; 
+    top: 0%; 
+    cursor: pointer; 
+    outline: none; height: 100%; width: 100%; background-color: #000000; 
+    -webkit-transform: skewX(-7deg); -ms-transform: skewX(-7deg); transform: skewX(-7deg); -webkit-transition: 0.3s; 
+    -o-transition: 0.3s; transition: 0.3s; } 
+    
+.Switch-Container-Style-2 input[type="checkbox"]:before { font-size: 100%; content: "OFF"; position: absolute; width: 45%; height: 75%;
+    background-color: var(--background-color); color: #a0a0a0; top: 12.5%; left: 5%; -webkit-transition: 0.3s; -o-transition: 0.3s;
+    transition: 0.3s; display: flex; align-items: center; justify-content: center; font-family: "Poppins", sans-serif; font-weight: 600;
+    letter-spacing: 1px; } 
+       
+.Switch-Container-Style-2 input[type="checkbox"]:checked { background: -o-linear-gradient(315deg, var(--Gradient1), var(--Gradient2));
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)); } 
+
+    .Switch-Container-Style-2 input[type="checkbox"]:checked:before { content: "ON"; left: 50%; color:var(--Gradient2); }
+
+
+/* Switch Style-0 AKA No Slant and Uses px not em*/
+
+/* #Camera-Enable-Container {
+    height: 20%;
+} */
+
+.Switch-Box-Style-0 {
+    width: 90%;
+    height: 90%;
+    margin: 10px 20px;
+}
+
+.Switch-Container-Style-0 {
+	width: 100%;
+	height: 90%;
+	background-color: var(--background-color);
+	position: relative;
+}
+
+
+.Switch-Container-Style-0 input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+	/* margin: auto; */
+    margin: 0px;
+	left: 0%;
+	right: 0;
+	top: 0%;
+	/* bottom: 0; */
+	cursor: pointer;
+	outline: none;
+
+    /* width: 6.25em; */
+    /* height: 2.8em; */
+    /* line-height: 2.8em; */
+
+
+    /* width: 200px;
+    height: 46px;
+    line-height: 45px; */
+
+    width: 200px;
+    height: calc(67px - 13.44px);
+    line-height: 45px;
+
+
+
+	background-color: #000000;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+
+.Switch-Container-Style-0 input[type="checkbox"]:before {
+	/* font-size: 1em; */
+    font-size: 16px;
+	content: "OFF";
+	position: absolute;
+
+	/* width: 3.75em;
+	height: 2.9em; */
+
+	width: 45%;
+	height: 80%;
+
+
+	background-color: var(--background-color);
+	color: #a0a0a0;
+	/* top: 0.42em;
+	left: 0.42em; */
+    /* top: 6.72px;
+	left: 6.72px; */
+    top: 10%;
+	left: 5%;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	/* display: -webkit-box;
+	display: -ms-flexbox; */
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.Switch-Container-Style-0 input[type="checkbox"]:checked {
+	background: -o-linear-gradient(315deg, var(--Gradient1), var(--Gradient2));
+	background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+}
+.Switch-Container-Style-0 input[type="checkbox"]:checked:before {
+	content: "ON";
+	left: 50%;
+	color: var(--Gradient2);
+}
+
+/* .Switch-Title-Style-0 {
+    margin-bottom: 3.8% !important;
+} */
+
+/* Radio Style 0 AKA  No Slant and Uses px not em*/
+
+.Radio-Wrapper-Style-0 {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Radio-Box-Style-0 {
+    width: 90%;
+    height: 10%;
+    margin-left: 0px;
+    /* margin-top: 20px; */
+    /* margin: 10px 20px; */
+}
+
+/* .Switch-Box-Style-0 {
+    width: 90%;
+    height: 10%;
+    margin-left: 0%;
+} */
+
+/* .Switch-Container-Style-0 {
+	width: 100%;
+	height: 10%;
+	background-color: var(--background-color);
+	position: relative;
+}
+
+
+.Switch-Container-Style-0 input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+
+	left: 5%;
+	right: 0;
+	top: 50%;
+
+	cursor: pointer;
+	outline: none;
+	height: 2.8em;
+	width: 6.25em;
+	background-color: #000000;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+.Switch-Container-Style-0 input[type="checkbox"]:before {
+	font-size: 1em;
+	content: "OFF";
+	position: absolute;
+	width: 45%;
+	height: 75%;
+	background-color: var(--background-color);
+	color: #a0a0a0;
+	top: 0.42em;
+	left: 0.42em;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+.Switch-Container-Style-0 input[type="checkbox"]:checked {
+	background: -o-linear-gradient(315deg, var(--Gradient1), var(--Gradient2));
+	background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+}
+.Switch-Container-Style-0 input[type="checkbox"]:checked:before {
+	content: "ON";
+	left: 50%;
+	color: var(--Gradient2);
+}
+
+.Switch-Title-Style-0 {
+    margin-bottom: 3.8% !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Scroll-Top {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    overflow-x: auto;
+    height: 80%;
+    width: 100%;
+    padding-left: 50px;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+}
+.container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+#Recent-Data-Options-Block {
+    width: 25%;
+}
+
+#Test-Options-Block {
+    width: 25%;
+}
+
+.Block-Option {
+    flex: 0 0 30%;
+    height: 100%;
+    margin: 0 10px;
+    background-color: var(--Secondary-Bg);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* cursor: pointer; */
+    /* user-select: none; */
+}
+
+.Block-Option-Slanted {
+    /* flex: 0 0 30%;
+    height: 100%;
+    margin: 0 10px; */
+    background-color: var(--Secondary-Bg);
+    color: white;
+    border: none;
+    font-size: 28px;
+    text-align: center;
+
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-direction: column;
+    flex: 0 0 25%;
+    margin: 0 10px;
+
+    /* padding: 10px 20px; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+     /* Make text transparent */
+    /* color: transparent; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: white;
+
+    background: transparent;
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+.Block-Option-Slanted:hover {
+    background: linear-gradient(135deg, var(--Gradient2), var(--Gradient1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    border-image: linear-gradient(135deg, var(--Gradient2), var(--Gradient1)) 1;
+}
+
+.No-Hover:hover {
+    color: white;
+    background: transparent;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+
+}
+
+
+.Block-Header {
+    margin: 10px 20px;
+    width: 90%;
+    height: 5%;
+    text-align: left;
+    background-color: transparent;
+    /* padding-left: 3%; */
+    /* padding-top: 3%;
+    padding-bottom: 3%; */
+}
+
+
+.Block-Options-List {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 10px 20px;
+    list-style-type: none;
+    list-style: none;
+    
+    height: 80%;
+    width: 100%;
+    background-color: transparent;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+}
+
+.Block-Options-List::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.Block-Options-List li {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 10%;
+    width: 100%;
+    height: 10%; /*Change this as needed*/
+    background-color: transparent;
+    margin-top: 5px;
+    list-style: none;
+    list-style-type: none;
+}
+
+/* This Button might indclude the thumbnail of the slowvideo if we have time */
+.Block-Options-List li button{
+    /* margin: auto; */
+    height: 90%;
+    width: 90%;
+    /* background-color: var(--primary-color); */
+    font-size: 1.2em;
+    text-align:center;
+    justify-content: center;
+    align-content: center;
+    /* color: white; */
+}
+
+.Block-Footer-Btn-Container {
+    display: flex;
+    margin: 0px;
+    height: 15%;
+    width: 100%;
+    background-color: transparent;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* box-shadow: 0px 0 5px -2px #ffffff; */
+    box-shadow: 0px -2px 4px 0 #ffffff67;
+}
+
+.Block-Footer-Btn-Container button {
+    /* margin: 10px 20px; */
+    height: 48%;
+    width: 90%;
+    margin: auto;
+    /* margin-bottom: 10px;
+    margin-top: 10px; */
+    /* background-color: var(--primary-color); */
+    font-size: 28px;
+    /* color: white; */
+    box-sizing:border-box;
+}
+
+.button {
+    flex: 0 0 30%;
+    height: 100%;
+    margin: 0 10px;
+    background-color: var(--Secondary-Bg);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.button:active {
+    background-color: rgb(77, 77, 77);
+}
+
+
+
+/* This is the Start of the Input Test Style Sheet */
+
+.Hidden {
+    display: None;
+}
+
+/* #Input-Test-Top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color); /*rgb(22, 26, 24);
+} */
+
+#Input-Test-Body {
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: center;
+    z-index: 11;
+}
+
+.Column-Style-2 {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: calc(100% - 4px);
+    width: 40%;
+    border: 2px solid;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+
+    overflow-y: scroll;
+}
+
+.Column-Style-2::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.Input-Test-Column {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height: calc(100% - 4px);
+    width: 40%;
+    border: 2px solid;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+
+    overflow-y: scroll;
+
+
+}
+
+.Input-Test-Column::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+#Impact-Energy-Input-Container {
+    display: flex;
+}
+
+#Input-Test-Btn-Footer {
+    /* position: fixed; */
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
+    z-index: 10;
+}
+
+#Input-Test-Btn-Footer button {
+    width: 10%;
+    height: 90%;
+    margin: 10px;
+    
+}
+
+.Spacer-For-Scrolling {
+    width: 100%;
+    height: 50%;
+}
+
+
+
+
+
+/* Number Pad */
+
+/* #numberPad {
+    width: 100vw;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(10, 89, 65);
+    gap: 10px;
+} */
+
+#numberPad {
+    width: 25vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+}
+
+#NumPad-Handle-Container {
+    display: flex;
+    width: 90%;
+    height: 5%;
+    padding: 0px;
+    margin-top: 5%;
+    /* margin: 0px 5%; */
+    
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#NumPadDragHandle {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    /* grid-row: 1;
+    grid-column: 1 / span 3; */
+
+    background-color: var(--background-color);
+    display: inline-block;
+    color: white;
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    /* -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg); */
+    outline: none;
+}
+
+#NumPadDragHandle:hover {
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)); /* Change background to gradient */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    color: transparent; /* Make text transparent to show the gradient */
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1; /* Change border to gradient */
+}
+
+#NumPad-Btn-Container {
+    width: 90%;
+    height: 85%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+
+    padding: 0px;
+    margin: 0px;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+#NumPad-Btn-Container button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none;
+}
+
+#NumPad-Btn-Container button:hover {
+    background: linear-gradient(135deg, var(--Gradient2), var(--Gradient1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    border-image: linear-gradient(135deg, var(--Gradient2), var(--Gradient1)) 1;
+}
+
+.Hidden {
+    display: None !important;
+}
+
+
+
+
+/* No Slant Style 2*/
+.Btn-Style-6 {
+    /* display: inline-block; */
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+
+    background: transparent;
+    /* background-clip: text; 
+    -webkit-background-clip: text;  */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+}
+
+.Btn-Style-5 {
+    /* display: inline-block; */
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: white;
+
+    background: var(--Secondary-Bg);
+    border: 2px solid;
+    border-image: var(--Secondary-Bg);
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+/* Transparent Background */
+.Btn-Style-4 {
+    /* display: inline-block; */
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+     /* Make text transparent */
+    /* color: transparent; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: white;
+
+    background: var(--Secondary-Bg);
+    border: 2px solid;
+    border-image: var(--Secondary-Bg);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+}
+
+.Btn-Style-3 {
+    /* display: inline-block; */
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+     /* Make text transparent */
+    /* color: transparent; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: white;
+
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+}
+
+.Btn-Style-2 {
+    /* display: inline-block; */
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+     /* Make text transparent */
+    /* color: transparent; */
+    color: white;
+    background: linear-gradient(135deg, var(--Gradient1), var(--Gradient2));
+    background-clip: text; /* Clip the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+}
+
+.Btn-Style-2:hover {
+    background: linear-gradient(135deg, var(--Gradient2), var(--Gradient1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    border-image: linear-gradient(135deg, var(--Gradient2), var(--Gradient1)) 1;
+}
+
+.Btn-Style-6:hover {
+    background: linear-gradient(135deg, var(--Gradient2), var(--Gradient1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    border-image: linear-gradient(135deg, var(--Gradient2), var(--Gradient1)) 1;
+}
+
+
+.Input-Style-2 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    /* background: transparent; */
+    /* background-clip: text; 
+    -webkit-background-clip: text;  */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+}
+
+.Input-Style-0 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    /* background: transparent; */
+    /* background-clip: text; 
+    -webkit-background-clip: text;  */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    /* -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg); */
+    outline: none;
+}
+
+
+
+
+
+
+
+
+/* Settings */
+
+/* #Settings-Top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(22, 26, 24);
+}
+
+#Settings-Body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+}
+
+.Settings-Category-Header {
+    color: white;
+    font-size: 3em;
+    margin-top: 1em;
+    margin-left: 5%;
+}
+
+.Settings-Option-Title {
+    color: white;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 5%;
+}
+
+.Settings-Input-Value {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 5%;
+} */
+
+canvas {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* This Will Need to be turned into a Class */
+/* #Settings-Btn-Footer {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
+}
+
+#Settings-Btn-Footer button {
+    width: 10%;
+    height: 90%;
+    margin: 10px;
+} */
+
+
+.Footer-Style1 {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
+}
+
+.Footer-Style1 button {
+    width: 10%;
+    height: 90%;
+    margin: 10px;
+    font-size: 1.5em;
+}
+
+
+/* .draggable {
+    display: none;
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border: 1px solid #000;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.Drag-Handle {
+    background-color: darkblue;
+    color: white;
+    cursor: move;
+    width: 100%;
+    height: 5%;
+}
+
+
+
+.resizable {
+    resize: both;
+    overflow: auto;
+}
+
+
+.Window-Body {
+
+    margin: auto;
+    height: 80%;
+    width: 80%;
+}
+
+.Window-Body div {
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+} */
+
+
+
+
+/* Stuff for the New Version of Data display */
+
+#Data-Display-Sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: transform 0.5s ease, width 0.5s ease 0.5s; /* Add delay to width change */
+    
+
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0px 0px;
+    /* padding-top: 60px; */
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    /* background: rgba(255, 255, 255, 0.05); */
+    /* background: transparent; */
+    /* background-clip: text; 
+    -webkit-background-clip: text;  */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    /* transition: background-color 0.3s, color 0.3s; */
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+    z-index: 100;
+}
+
+.Data-Display-Sidebar-Option {
+    padding: 10px 20px;
+    margin: 0px 0px;
+
+    background-color: #111;
+
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+
+    border: none;
+
+
+
+
+
+}
+
+.Data-Display-Sidebar-Option {
+    /* padding: 10px 15px; */
+    text-decoration: none;
+    /* font-size: 25px; */
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.Data-Display-Sidebar-Option:hover {
+    color: #f1f1f1;
+}
+
+#Data-Display-Sidebar.collapsed {
+    transform: translateX(-200%) skewX(-7deg);
+    /* width: 0; */
+}
+
+.Data-Display-Type-Top-Main {
+    /* margin-left: 250px; */
+    /* padding: 16px; */
+    display: flex;
+    transition: margin-left 0.5s ease;
+}
+
+.Data-Display-Type-Top-Main.expanded {
+    margin-left: 0;
+}
+
+
+
+.Close-Sidebar-Btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background: none;
+    border: none;
+    color: #818181;
+    cursor: pointer;
+}
+
+.Open-Sidebar-Btn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    display: none; /* Initially hidden */
+}
+
+
+
+.Testing {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0px 0px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    /* background: transparent; */
+    /* background-clip: text; 
+    -webkit-background-clip: text;  */
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+    outline: none;
+
+}
+
+#Data-Display-Sidebar.collapsed + #Data-Display-Main .Open-Sidebar-Btn {
+    display: block; /* Show the button when the sidebar is collapsed */
+}
+
+.DD-Option-Top {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.DD-Option-Top.active {
+    display: block;
+}
+
+/* #Data-Display-Sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+} */
+
+
+
+
+
+#Data-Display-Top {
+    position: fixed;
+    /* THIS IS THAT SUPER DARK CYAN COLOR */
+    /* background-color: rgb(22, 26, 24); */
+    background-color: rgb(26, 24, 22);
+    width: calc(100vw);
+    height: calc(100vh);
+    top: 0;
+    left: 0;
+    margin: 0;
+    /* padding: 10px; */
+    overflow: hidden;
+}
+
+.Data-Display-Type-Top-Main {
+    /* margin-left: 250px; */
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    margin-left: 0px;
+    padding: 16px;
+    transition: margin-left 0.5s;
+}
+
+
+.Graph-Container-Style-1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+.Canvas-Container {
+    width: 100%;
+    height: 85%;
+    margin: 0px;
+    padding: 2px;
+}
+
+.Graph-Footer {
+    width: 100%;
+    height: 10%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Graph-Footer input {
+    height: 90%;
+    width: 300px;
+    max-width: 25%;
+    margin: 0px;
+    margin-left: 10px;
+    box-sizing: border-box;
+
+}
+
+.Graph-Footer button {
+    height: 90%;
+    width: 150px;
+    max-width: 10%;
+    margin-left: 10px;
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+
+.Graph-Header {
+    /* display: flex;
+    flex-direction: row; */
+    position: relative;
+    width: 98%;
+    height: 5%;
+    padding-left: 2%; 
+}
+
+.Graph-Toggle-Switches-Container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%; 
+}
+
+.Graph-Info-Btn-Container {
+    position: absolute;
+    right: 2%;
+    top: 150%;
+    width: 2%;
+    height: auto;
+    /* height: 90%;
+    width: auto; */
+    aspect-ratio: 1;
+    /* padding-bottom: 90%; */
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+}
+
+.Graph-Info-Btn-Container button{
+    width: 100%;
+    height: 100%;
+
+    font-size: 16px;font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    /* background-color: #111; */
+    color: white;
+    border: none;
+    /* padding: 10px 15px; */
+    position: fixed;
+    -webkit-transform: skewX(0deg);
+    -ms-transform: skewX(0deg);
+    transform: skewX(0deg);
+    /* top: 10px; */
+    /* left: 10px; */
+    /* z-index: 1; */
+}
+
+.Graph-Info-Container {
+    position: absolute;
+    top: 100%;
+    right: 100%;
+    width: 800%;
+    height: 1000%;
+    padding: 10px 20px;
+    margin: 0px 0px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    background-color: #00000098;
+    background-clip: border-box; /* Clip the background to the text */
+    -webkit-background-clip: border; /* For Safari */
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--Gradient1), var(--Gradient2)) 1;
+    box-shadow: 0px 0px 4px 0 #ffffff7a;
+
+
+}
+
+/* .Graph-Header .Switch-Wrapper-Style-2 .Switch-Box-Style-2 .Switch-Container-Style-2 input[type="checkbox"] {
+    height: 10px !important;
+} */
+
+/* .Graph-Header .Switch-Wrapper-Style-0 {
+    height: 10% !important;
+} */
+
+.Graph-Toggle-Text {
+    color: white;
+    font-size: 14px;
+    padding: 20px;
+    padding-top: 0.5%;
+    margin: 0px 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+    -webkit-transform: skewX(-7deg);
+    -ms-transform: skewX(-7deg);
+    transform: skewX(-7deg);
+}
+
+
+
+
+.Data-Solo {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.Column-Style {
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+}
+
+.Column-Style::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.Data-Column {
+    width: 100%;
+    height: 40vh;
+}
+
+.Quadrants-Style {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+
+}
+
+.Data-Quadrant {
+    width: 50%;
+    height: 50%;
+}
+
+#Video-Div {
+    position: relative;
+    width: 100%;
+    height: 88%;
+}
+
+#Video-Div div {
+    height: 100%;
+    width: 100%;
+}
+
+#Video-Div video {
+    width:100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+#Video-Footer {
+    margin-top: 2%;
+}
+
+
+
+
+
+/* Manual Motor Control Style */
+
+#Motor-Control-Btn-Options-Container {
+    padding: 10px 10px;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:  wrap;
+    justify-content: center;
+
+}
+
+#Motor-Control-Btn-Options-Container button {
+    width: calc(25% - 40px);
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    
+}
+
+

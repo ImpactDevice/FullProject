@@ -1,0 +1,152 @@
+#VDF-1-DD-Top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+#Data-Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+#Data-Display-Footer {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    height: 7%;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+#Data-Display-Footer button { 
+    height: 90%;
+    margin-right: 10px;
+}
+
+
+
+
+.panel1 {
+    width: 40%;
+    height: 80%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#Graph-Containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .panel {
+    height: 50%;
+} */
+
+.panel img {
+    height: 100%;
+}
+
+.panel1 video {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+/* Start of The Data-Display-Options */
+
+#Data-Display-Options-Top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#All-Display-Options-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    align-content: center;
+}
+
+.Data-Display-Options-Row {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 42%;
+    margin-top: 3%;
+}
+
+.Data-Display-Option-Container {
+    display: flex;
+    height: 100%;
+
+}
+
+.Data-Display-Option-Container button {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.Data-Display-Option-Header {
+    display: flex;
+    width: 100%;
+    height: 8%;
+    margin-top: 2%;
+    justify-content: center;
+    align-content: center;
+}
+
+.Data-Display-Option-Icon {
+    display: block;
+    width: 96%;
+    height: 86%;
+    margin: 2%;
+    justify-content: center;
+    align-content: center;
+}
+
+#Display-Data-Options-Footer {
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
+}
+    
+#Display-Data-Options-Footer button {
+    width: 10%;
+    height: 90%;
+    margin: 10px;
+}
+
+
+
+
+
+
+

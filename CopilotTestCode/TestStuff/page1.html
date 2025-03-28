@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Slide Panels</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+        .panel1 {
+            width: 40%;
+            height: 80%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #Graph-Containers {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .panel {
+            height: 50%;
+
+        }
+
+        .panel img {
+            height: 100%;
+        }
+
+        .panel1 video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel1">
+        </div>
+        <div id="Graph-Containers" class="panel1">
+            <div class="panel">
+                <div id="Energy-Value" class="Data-Text">Temp: 200</div>
+            </div>
+            <div class="panel">
+                <div id="Energy-Value" class="Data-Text">Temp: 100</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

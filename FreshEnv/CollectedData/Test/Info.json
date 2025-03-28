@@ -1,0 +1,16 @@
+{
+	"Available_Data": {
+		"isEnergy": true,
+		"isDistance": true,
+		"isForce": true,
+		"isVideo": true
+	},
+	"Data_Info": {
+		"Impact-Energy": "12",
+		"Max-Force": "100",
+		"Video_Framerate": "960"
+	}
+		
+	
+	
+}

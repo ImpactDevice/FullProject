@@ -1,0 +1,19 @@
+{
+  "Calibration": {
+    "Motor": {
+      "Alpha": "2.5"
+    },
+    "Rails": {
+        "Friction_Coeffiecient": "0.005"
+    },
+    "Filters": {
+        "Kalman_Filter": 1
+    },
+    "Force_Sensor": {
+      "Ratio": 1
+    }
+  },
+  "Graphs": {
+    "Column_Height": "25%"
+  }
+}

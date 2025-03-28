@@ -1,0 +1,93 @@
+#include <iostream>
+#include <libiolink/iolink.hpp>
+#include <json/json.h>
+
+class MyIOComm : public iolink::iot::InterfaceComm {
+public:
+    std::string httpGet(const iolink::string_t &adr) const override {
+        // Implement the GET request to your IO-Link master here
+        // This is a placeholder implementation
+        return "{}";
+    }
+
+    std::string httpPost(const iolink::string_t &json) const override {
+        // Implement the POST request to your IO-Link master here
+        // This is a placeholder implementation
+        return "{}";
+    }
+};
+
+int main() {
+    MyIOComm comm;
+    iolink::Master master(comm);
+
+    // Replace with your sensor's IO-Link address
+    iolink::Device sensor(master, "iolink://your-sensor-address");
+
+    // Read distance measurement
+    auto distance = sensor.readProcessData();
+    std::cout << "Distance: " << distance << " mm" << std::endl;
+
+    return 0;
+}
+
+
+#include <iostream>
+#include <curl/curl.h>
+
+std::string httpGet(const std::string &url) {
+    CURL *curl;
+    CURLcode res;
+    std::string response;
+
+    curl = curl_easy_init();
+    if(curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,  -> size_t {
+            ((std::string*)userp)->append((char*)contents, size * nmemb);
+            return size * nmemb;
+        });
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+        res = curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+    }
+    return response;
+}
+
+int main() {
+    std::string url = "http://your-iolink-master-address/read?port=1&index=0x0025";
+    std::string response = httpGet(url);
+    std::cout << "Response: " << response << std::endl;
+    return 0;
+}
+
+#include <iostream>
+#include <curl/curl.h>
+
+std::string httpPost(const std::string &url, const std::string &data) {
+    CURL *curl;
+    CURLcode res;
+    std::string response;
+
+    curl = curl_easy_init();
+    if(curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,  -> size_t {
+            ((std::string*)userp)->append((char*)contents, size * nmemb);
+            return size * nmemb;
+        });
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+        res = curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+    }
+    return response;
+}
+
+int main() {
+    std::string url = "http://your-iolink-master-address/write";
+    std::string data = "{\"port\":1,\"index\":0x0025,\"value\":1234}";
+    std::string response = httpPost(url, data);
+    std::cout << "Response: " << response << std::endl;
+    return 0;
+}

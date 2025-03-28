@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Device</title>
+    <!-- <link rel="stylesheet" href="DraggebleWindows.css"> -->
+    <link rel="stylesheet" href="ScrollFrame.css">
+    <!-- <link rel="stylesheet" href="DisplayData.css"> -->
+    <link rel="stylesheet" href="Keypad.css">
+    <!-- Scripts For Making Chart.js Work With Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+
+    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
+    
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    
+</head>
+<body>
+    <div id="Scroll-Top"> 
+        <div class="container" id="scroll-container">
+            <div class="Block-Option-Slanted  No-Hover" id="Recent-Data-Options-Block">
+                <div class="Block-Header" id="Recent-File-Header">Recent Files:</div>
+                <ul id="Recent-Data-Options-List" class="Block-Options-List">
+    
+    
+                </ul>
+                <!-- <ul id="file-list"></ul> -->
+                <div id="Go-To-All-Data-Block" class="Block-Footer-Btn-Container">
+                    <button id="All-Data-Button" class="Btn-Style-6" onclick="Show_Data_Display_Options()">Open All Data</button>
+                </div>
+            </div>
+    
+    
+            <div class="Block-Option-Slanted No-Hover" id="Test-Options-Block">
+                <div class="Block-Header" id="Test-Header">Run Test:</div>
+                <ul id="Preset-Test-List" class="Block-Options-List">
+    
+    
+                </ul>
+                <!-- <ul id="Preset-Test-list"></ul> IDK why this is here but it might be needed same with the other one -->
+                <div id="Input-Test-Block" class="Block-Footer-Btn-Container">
+                    <!-- This Button Should Have an option at the bottom to save, run, or Cancel -->
+                    <button id="Input-Test-Button" class="Btn-Style-6">Input Test</button>
+                </div>
+            </div>
+            <button id="Manual-Control-Btn" class="Block-Option-Slanted">Manual Control</button>
+            <button id="Open-Settings-Btn" class="Block-Option-Slanted">Settings</button>
+            <button id="Open-Calibration-Btn" class="Block-Option-Slanted">Calibration Test</button>
+        </div>
+    </div>
+
+
+    <!-- New Method For Displaying Data -->
+     <div id="Data-Display-Top" class="Top Hidden">
+        <div id="Data-Display-Sidebar" class="Sidebar-Style-2 Testing">
+            <button class="Close-Sidebar-Btn" onclick="toggleSidebar()">☰</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Quadrants')">Quadrants</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Column')">Column</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="showContent('content3')">Sandbox</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Video-Only')">Video-Only</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Energy-Only')">Energy-Only</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Distance-Only')">Distance-Only</button>
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Show_Data_Display_Type('Force-Only')">Force-Only</button>
+            <!-- <button href="#" class="Data-Display-Sidebar-Option" onclick="showContent('Force-Only')">Overlay-All</button> -->
+            <!-- Settings will need to include the sampling rate and potentially range of eq data -->
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Close_All_Top()">Settings</button>   
+            <button href="#" class="Data-Display-Sidebar-Option" onclick="Close_All_Top()">Exit</button>
+        </div>
+
+        <!-- For Information about the Graphs add an Icon that will make a drop down containing it -->
+        <div id="Data-Display-Main" class="Data-Display-Type-Top-Main">
+            <button class="Open-Sidebar-Btn Btn-Style-2" onclick="toggleSidebar()">☰</button>
+            <div id="Energy-Only" class="Data-Display-Type-Top DD-Graph-Only DD-Option-Top Hidden">
+                <div id="Energy-Only-Body" class="Graph-Container-Style-1">
+                    <div class="Graph-Header">
+                        <div class="Graph-Toggle-Switches-Container">
+
+                        </div>
+                        <div class="Graph-Info-Btn-Container">
+                            <button id="Energy-Graph-Info-Btn" class="Btn-Style-2" onclick="ToggleInfoDiv('Energy-Graph-Info-Container')">ⓘ</button>
+                            <div id="Energy-Graph-Info-Container" class="Graph-Info-Container Hidden">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Canvas-Container">
+                        <canvas id="Energy-Only-Chart" class="Data-Canvas"></canvas>
+                    </div>
+                    <div id="Energy-Only-Footer" class="Graph-Footer">
+                        <input id="Energy-Start-Graph-Input"  class="Input-Style-2 Range-Start" placeholder="Range Start" readonly onclick="showNumberPad('Energy-Start-Graph-Input')">
+                        <input id="Energy-End-Graph-Input"  class="Input-Style-2 Range-End" placeholder="Range End" readonly onclick="showNumberPad('Energy-End-Graph-Input')">
+                        <button id="Energy-Graph-Range-Enter" class="Btn-Style-2" onclick="ChangeGraphRange('Energy-Only-Chart', 'Energy-Only-Footer')">Enter</button>
+                        <button id="Energy-Graph-Range-Reset" class="Btn-Style-2" onclick="ResetGraphRange('Energy-Only-Chart')">Reset</button>
+                    </div>
+                </div>
+            
+            </div>
+            <div id="Distance-Only" class="Data-Display-Type-Top DD-Graph-Only DD-Option-Top  Hidden">
+                <div id="Distance-Only-Body" class="Graph-Container-Style-1">
+                    <div class="Graph-Header">
+                        <div class="Graph-Toggle-Switches-Container">
+
+                        </div>
+                        <div class="Graph-Info-Btn-Container">
+                            <button id="Distance-Graph-Info-Btn" class="Btn-Style-2" onclick="ToggleInfoDiv('Distance-Graph-Info-Container')">ⓘ</button>
+                            <div id="Distance-Graph-Info-Container" class="Graph-Info-Container Hidden">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Canvas-Container">
+                        <canvas id="Distance-Only-Chart" class="Data-Canvas"></canvas>
+                    </div>
+                    <div id="Distance-Only-Footer" class="Graph-Footer">
+                        <input id="Distance-Start-Graph-Input"  class="Input-Style-2 Range-Start" placeholder="Range Start" readonly onclick="showNumberPad('Distance-Start-Graph-Input')">
+                        <input id="Distance-End-Graph-Input"  class="Input-Style-2 Range-End" placeholder="Range End" readonly onclick="showNumberPad('Distance-End-Graph-Input')">
+                        <button id="Distance-Graph-Range-Enter" class="Btn-Style-2" onclick="ChangeGraphRange('Distance-Only-Chart', 'Distance-Only-Footer')">Enter</button>
+                        <button id="Distance-Graph-Range-Reset" class="Btn-Style-2" onclick="ResetGraphRange('Distance-Only-Chart')">Reset</button>
+                    </div>
+                </div>
+            
+            </div>
+            <div id="Force-Only" class="Data-Display-Type-Top DD-Graph-Only DD-Option-Top Hidden">
+                <div id="Force-Only-Body" class="Graph-Container-Style-1">
+                    <div class="Graph-Header">
+                        <div class="Graph-Toggle-Switches-Container">
+
+                        </div>
+                        <div class="Graph-Info-Btn-Container">
+                            <button id="Force-Graph-Info-Btn" class="Btn-Style-2" onclick="ToggleInfoDiv('Force-Graph-Info-Container')">ⓘ</button>
+                            <div id="Force-Graph-Info-Container" class="Graph-Info-Container Hidden">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Canvas-Container">
+                        <canvas id="Force-Only-Chart" class="Data-Canvas"></canvas>
+                    </div>
+                    <div id="Force-Only-Footer" class="Graph-Footer">
+                        <input id="Force-Start-Graph-Input"  class="Input-Style-2 Range-Start" placeholder="Range Start" readonly onclick="showNumberPad('Force-Start-Graph-Input')">
+                        <input id="Force-End-Graph-Input"  class="Input-Style-2 Range-End" placeholder="Range End" readonly onclick="showNumberPad('Force-End-Graph-Input')">
+                        <button id="Force-Graph-Range-Enter" class="Btn-Style-2" onclick="ChangeGraphRange('Force-Only-Chart', 'Force-Only-Footer')">Enter</button>
+                        <button id="Force-Graph-Range-Reset" class="Btn-Style-2" onclick="ResetGraphRange('Force-Only-Chart')">Reset</button>
+                    </div>
+                </div>
+            
+            </div>
+            <div id="Video-Only" class="Data-Display-Type-Top DD-Graph-Only DD-Option-Top  Hidden">
+                <div id="Video-Div">
+
+                </div>
+                <div id="Video-Footer" class="Graph-Footer">
+                    <button id="Video-Frame-Backward-Btn" class="Btn-Style-2" onclick="Forward_Video()">-</button>
+                    <button id="Video-Frame-Forward-Btn" class="Btn-Style-2" onclick="Backward_Video()">+</button>
+                </div>
+            </div>
+        </div>
+
+
+     </div>
+
+
+     <div id="Manual-Control-Top" class="Top Top-Panel Hidden Top-Style-2">
+        <div id="Manual-Control-Body" class="Body-Style-2">
+            <div class="Manual-Control-Column Column-Style-2">
+                <div id="Units-Input-Container" class="Option-Container-Style-2">
+                    <div id="Motor-Control-Title" class="Test-Input-Titles Title-Style-2">Motor Control</div>
+                    <div id="Units-Radio-Btn" class="Option-Radio-Style-0">
+                        <div class="wrapper Radio-Wrapper-Style-2">
+                            <div class="Radio-Box-Style-0">
+                                <div class="Switch-Container-Style-0">
+                                    <input type="radio" name="Units-Options" id="Steps" class="radio-style" value="Steps" checked>
+                                    <label for="Steps" class="Radio-Label-Style-0">Steps</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper Radio-Wrapper-Style-2">
+                            <div class="Radio-Box-Style-0">
+                                <div class="Switch-Container-Style-0">
+                                    <input type="radio" name="Units-Options" id="MM" value="MM" class="radio-style">
+                                    <label for="MM" class="Radio-Label-Style-0">MM</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper Radio-Wrapper-Style-2">
+                            <div class="Radio-Box-Style-0">
+                                <div class="Switch-Container-Style-0">
+                                    <input type="radio" name="Units-Options" id="Inch" value="Inch" class="radio-style">
+                                    <label for="Inch" class="Radio-Label-Style-0">Inch</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+                </div>
+                <div id="Motor-Control-Input-Container" class="Option-Container-Style-2">
+                    <input id="Distance-Input"  class="Input-Style-0" readonly onclick="showNumberPad('Distance-Input')">
+                </div>
+                <div id="Motor-Control-Btn-Options-Container" class="Option-Container-Style-2">
+                    <button class="Btn-Style-6" onclick="Run_Motor('1')">+1</button>
+                    <button class="Btn-Style-6" onclick="Run_Motor('-1')">-1</button>
+
+                    <button class="Btn-Style-6" onclick="Run_Motor('10')">+10</button>
+                    <button class="Btn-Style-6" onclick="Run_Motor('-10')">-10</button>
+
+                    <button class="Btn-Style-6" onclick="Run_Motor('+')">+</button>
+                    <button class="Btn-Style-6" onclick="Run_Motor('-')">-</button>
+
+                    <button class="Btn-Style-6" onclick="Run_Motor('+Inf')">+Inf</button>
+                    <button class="Btn-Style-6" onclick="Run_Motor('-Inf')">-Inf</button>
+                </div>
+                <div id="EM-Enable-Container" class="Option-Container-Style-2">
+                    <div id="EM-Input-Title" class="Test-Input-Titles Title-Style-2">Electro Magnet Control</div>
+                    <!-- <div class="wrapper Switch-Wrapper-Style-0"> -->
+                    <div class="Switch-Box-Style-0">
+                        <div class="Switch-Container-Style-0"><input type="checkbox" checked/></div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div id="Engage-Motor-Container" class="Option-Container-Style-2">
+                    <div id="Engage-Motor-Title" class="Test-Input-Titles Title-Style-2">Engage Motor</div>
+                    <!-- <div class="wrapper Switch-Wrapper-Style-0"> -->
+                    <div class="Switch-Box-Style-0">
+                        <div class="Switch-Container-Style-0"><input type="checkbox" checked/></div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                
+                <div class="Spacer-For-Scrolling"></div>
+            </div>
+        </div>
+        <div id="Input-Test-Btn-Footer" class="Footer-Style1">
+            <button id="Close-Input-Test" class="Btn-Style-2 Top-Close-Btn">Close</button>
+        </div>
+    </div>
+
+
+
+    <div id="Input-Test-Top" class="Top Top-Panel Hidden Top-Style-2">
+        <div id="Input-Test-Body" class="Body-Style-2">
+            <div class="Input-Test-Column">
+                <form id="Input-Test-Form"> <!-- This my Have actually Broken Stuff But I can't tell why-->
+                    <div id="Impact-Energy-Input-Container" class="Option-Container-Style-2">
+                        <div id="Name-Input-Title"  class="Test-Input-Titles Title-Style-2">Name Test</div>
+                        <input id="Name-Input" name="Test-Name" class="Input-Style-0" readonly onclick="showKeyboard('Name-Input')">
+                    </div>
+                    <div id="Impact-Energy-Input-Container" class="Option-Container-Style-2">
+                        <div id="Impact-Energy-Input-Title" class="Test-Input-Titles Title-Style-2">Impact Energy (Joules)</div>
+                        <input id="Impact-Energy-Input" name="Impact-Energy" class="Input-Style-0" readonly onclick="showNumberPad('Impact-Energy-Input')">
+                    </div>
+                    <div id="Mass-Input-Container" class="Option-Container-Style-2">
+                        <div id="Mass-Input-Title" class="Test-Input-Titles Title-Style-2">Mass</div>
+                        <div id="Mass-Radio-Btn" class="Option-Radio-Style-0">
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-0">
+                                    <div class="Switch-Container-Style-0">
+                                        <input type="radio" name="Mass-Options" id="Sphere" class="radio-style" value="Sphere" checked>
+                                        <label for="Sphere" class="Radio-Label-Style-0">Sphere</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-0">
+                                    <div class="Switch-Container-Style-0">
+                                        <input type="radio" name="Mass-Options" id="Slug" value="Slug" class="radio-style">
+                                        <label for="Slug" class="Radio-Label-Style-0">Slug</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-0">
+                                    <div class="Switch-Container-Style-0">
+                                        <input type="radio" name="Mass-Options" id="Custom" value="Custom" class="radio-style">
+                                        <label for="Custom" class="Radio-Label-Style-0">Custom</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="Mass-Input" name="Custom-Mass" class="Input-Style-0" readonly onclick="showNumberPad('Mass-Input')">
+        
+                    </div>
+                    <div id="Camera-Enable-Container" class="Option-Container-Style-2">
+                        <div id="Camera-Input-Title" class="Test-Input-Titles Title-Style-2">Enable Camera</div>
+                        <!-- <div class="wrapper Switch-Wrapper-Style-0"> -->
+                        <div class="Switch-Box-Style-0">
+                            <div class="Switch-Container-Style-0"><input name="Enable-Camera" type="checkbox" checked/></div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                    <div id="FPS-Input-Container" class="Option-Container-Style-2">
+                        <div id="FPS-Input-Title" class="Test-Input-Titles Title-Style-2">Camera FPS</div>
+                        <div id="FPS-Radio-Btn" class="Option-Radio-Style-0">
+                            
+                                <div class="wrapper Radio-Wrapper-Style-2">
+                                    <div class="Radio-Box-Style-0">
+                                        <div class="Switch-Container-Style-0">
+                                            <input type="radio" name="FPS-Options" id="FPS-Radio-960-Option" class="radio-style" value="960" checked>
+                                            <label for="FPS-Radio-960-Option" class="Radio-Label-Style-0">960</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrapper Radio-Wrapper-Style-2">
+                                    <div class="Radio-Box-Style-0">
+                                        <div class="Switch-Container-Style-0">
+                                            <input type="radio" name="FPS-Options" id="FPS-Radio-480-Option" value="480" class="radio-style">
+                                            <label for="FPS-Radio-480-Option" class="Radio-Label-Style-0">480</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrapper Radio-Wrapper-Style-2">
+                                    <div class="Radio-Box-Style-0">
+                                        <div class="Switch-Container-Style-0">
+                                            <input type="radio" name="FPS-Options" id="FPS-Radio-120-Option" value="120" class="radio-style">
+                                            <label for="FPS-Radio-120-Option" class="Radio-Label-Style-0">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrapper Radio-Wrapper-Style-2">
+                                    <div class="Radio-Box-Style-0">
+                                        <div class="Switch-Container-Style-0">
+                                            <input type="radio" name="FPS-Options" id="FPS-Radio-60-Option" value="60" class="radio-style">
+                                            <label for="FPS-Radio-60-Option" class="Radio-Label-Style-0">60</label>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                        </div>
+                    </div>
+                    <div id="Cam-Delay-Input-Container" class="Option-Container-Style-2">
+                        <div id="Cam-Delay-Input-Title" class="Test-Input-Titles Title-Style-2">Camera Delay</div>
+                        <input id="Cam-Delay-Input" name="Camera-Delay" class="Input-Style-0" readonly onclick="showNumberPad('Cam-Delay-Input')">
+                    </div>
+                    <div id="Force-Enable-Container" class="Option-Container-Style-2">
+                        <div id="Force-Input-Title" class="Test-Input-Titles Title-Style-2 Switch-Title-Style-0">Enable Force Sensor</div>
+                        <div class="Switch-Wrapper-Style-0">
+                            <div class="Switch-Box-Style-0">
+                                <div class="Switch-Container-Style-0"><input name="Enable-Force-Sensor" type="checkbox" checked/></div>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+    
+    
+                    <div class="Spacer-For-Scrolling"></div>
+                </form>
+                
+            </div>
+            <!-- <div class="Input-Test-Column">
+                <div id="Camera-Enable-Container" class="Option-Container-Style-2">
+                    <div id="Name-Input-Title" class="Test-Input-Titles Title-Style-2 Switch-Title-Style-2">Enable Camera</div>
+                    <div class="wrapper Switch-Wrapper-Style-2">
+                        <div class="Switch-Box-Style-2">
+                            <div class="Switch-Container-Style-2"><input type="checkbox" checked/></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="FPS-Input-Container" class="Option-Container-Style-2">
+                    <div id="FPS-Input-Title" class="Test-Input-Titles Title-Style-2">Camera FPS</div>
+                    <div id="FPS-Radio-Btn" class="Option-Radio-Style-2">
+                        <div id="FPS-Radio-Btn" class="Option-Radio-Style-2">
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-2">
+                                    <div class="Switch-Container-Style-2">
+                                        <input type="radio" name="FPS-Options" id="FPS-Radio-960-Option" class="radio-style" value="960" checked>
+                                        <label for="FPS-Radio-960-Option" class="radio-label">960</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-2">
+                                    <div class="Switch-Container-Style-2">
+                                        <input type="radio" name="FPS-Options" id="FPS-Radio-480-Option" value="480" class="radio-style">
+                                        <label for="FPS-Radio-480-Option" class="radio-label">480</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-2">
+                                    <div class="Switch-Container-Style-2">
+                                        <input type="radio" name="FPS-Options" id="FPS-Radio-120-Option" value="120" class="radio-style">
+                                        <label for="FPS-Radio-120-Option" class="radio-label">120</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper Radio-Wrapper-Style-2">
+                                <div class="Radio-Box-Style-2">
+                                    <div class="Switch-Container-Style-2">
+                                        <input type="radio" name="FPS-Options" id="60" value="FPS-Radio-60-Option" class="radio-style">
+                                        <label for="FPS-Radio-60-Option" class="radio-label">60</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Cam-Delay-Input-Container" class="Option-Container-Style-2">
+                    <div id="Cam-Delay-Input-Title" class="Test-Input-Titles Title-Style-2">Camera Delay</div>
+                    <input id="Cam-Delay-Input"  class="Input-Style-2" readonly onclick="showNumberPad('Cam-Delay-Input')">
+                </div>
+            </div>
+            <div class="Input-Test-Column">
+                <div id="Force-Enable-Container" class="Option-Container-Style-2">
+                    <div id="Force-Input-Title" class="Test-Input-Titles Title-Style-2 Switch-Title-Style-2">Enable Force Sensor</div>
+                    <div class="Switch-Wrapper-Style-2">
+                        <div class="Switch-Box-Style-2">
+                            <div class="Switch-Container-Style-2"><input type="checkbox" checked/></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div id="Input-Test-Btn-Footer" class="Footer-Style1">
+            <button id="Save-Input-Test" class="Btn-Style-2" onclick="Save_Preset_Test()">Save</button>
+            <button id="Run-Input-Test" class="Btn-Style-2">Run</button>
+            <button id="Close-Input-Test" class="Btn-Style-2 Top-Close-Btn">Close</button>
+        </div>
+    </div>
+
+
+    <div id="Settings-Top" class="Top Hidden Top-Style-2">
+        <div id="Settings-Body" class="Body-Style-2">
+            <div class="Input-Test-Column">
+                <form id="Settings-Form">
+                    <div class="Settings-Category-Header">Calibration</div>
+                    <div id="Motor-Value-Container" class="Option-Container-Style-2">
+                        <div class="Title-Style-2">Stepper Alpha</div>
+                        <input id="Motor-Alpha-Value-Input" name="Alpha" class="Input-Style-0" readonly onclick="showNumberPad('Motor-Alpha-Value-Input')">
+                    </div>
+                    <div id="Friction-Value-Container" class="Option-Container-Style-2">
+                        <div class="Title-Style-2">Friction Coefficient</div>
+                        <input id="Friction-Value-Input" name="Friction-Coeff" class="Input-Style-0" readonly onclick="showNumberPad('Friction-Value-Input')">
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+        <div id="Settings-Btn-Footer" class="Footer-Style1">
+            <button id="Save-Settings-Test" class="Btn-Style-2">Save</button>
+            <button id="Close-Settings-Test" class="Top-Close-Btn Btn-Style-2">Close</button>
+        </div>
+
+    </div>
+
+    <!-- I would also like to add the 5e-2 -->
+    <div id="numberPad" style="display: none" class="number-pad draggable">
+        <div id="NumPad-Handle-Container">
+            <div id="NumPadDragHandle" class="Drag-Handle"></div>
+        </div>
+        <div id="NumPad-Btn-Container">
+            <button onclick="addNumber(1)" style="grid-column:1; grid-row:2">1</button>
+            <button onclick="addNumber(2)" style="grid-column:2; grid-row:2">2</button>
+            <button onclick="addNumber(3)" style="grid-column:3; grid-row:2">3</button>
+            <button onclick="addNumber(4)" style="grid-column:1; grid-row:3">4</button>
+            <button onclick="addNumber(5)" style="grid-column:2; grid-row:3">5</button>
+            <button onclick="addNumber(6)" style="grid-column:3; grid-row:3">6</button>
+            <button onclick="addNumber(7)" style="grid-column:1; grid-row:4">7</button>
+            <button onclick="addNumber(8)" style="grid-column:2; grid-row:4" >8</button>
+            <button onclick="addNumber(9)" style="grid-column:3; grid-row:4">9</button>
+            <button onclick="addNumber(0)" style="grid-column:1; grid-row:5">0</button>
+            <button onclick="addNumber('.')" style="grid-column:2; grid-row:5">.</button>
+            <button onclick="clearInput()" style="grid-column:3; grid-row:5">Clear</button>
+        </div>
+    </div>
+    <div id="keyboard" style="display: none" class="keyboard">
+        <div class="row">
+          <div class="key key__esc" onclick="addCharacter('Escape')">
+            <i data-feather="x"></i>
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('1')">
+            ! <span> 1
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('2')">
+            @ <span> 2
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('3')">
+            # <span> 3
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('4')">
+            $ <span> 4
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('5')">
+            % <span> 5
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('6')">
+            ^ <span> 6
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('7')">
+            & <span> 7
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('8')">
+            * <span> 8
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('9')">
+            ( <span> 9
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('0')">
+            ) <span> 0
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('-')">
+            _ <span> -
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('=')">
+            + <span> =
+          </div>
+          <div class="key key__delete key__icon" onclick="deleteCharacter()">
+            delete<!-- <i data-feather="delete"></i> -->
+          </div>
+        </div>
+            
+        <div class="row">
+            <div class="key key__oneandhalf">
+                <i data-feather="log-in"></i>
+            </div>
+            <div class="key" onclick="addCharacter('Q')">Q</div>
+            <div class="key" onclick="addCharacter('W')">W</div>
+            <div class="key" onclick="addCharacter('E')">E</div>
+            <div class="key" onclick="addCharacter('R')">R</div>
+            <div class="key" onclick="addCharacter('T')">T</div>
+            <div class="key" onclick="addCharacter('Y')">Y</div>
+            <div class="key" onclick="addCharacter('U')">U</div>
+            <div class="key" onclick="addCharacter('I')">I</div>
+            <div class="key" onclick="addCharacter('O')">O</div>
+            <div class="key" onclick="addCharacter('P')">P</div>
+            <div class="key key__symbols" onclick="addCharacter('[')">
+                { <span> [
+            </div>
+            <div class="key key__symbols" onclick="addCharacter(']')">
+                } <span> ]
+            </div>
+            <div class="key key__symbols key__oneandhalf" onclick="addCharacter('\\')">
+                | <span> \
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="key key__caps" onclick="toggleCapsLock()">
+                CapsLock
+                <!-- <i data-feather="meh"></i> -->
+            </div>
+            <div class="key" onclick="addCharacter('A')">A</div>
+            <div class="key" onclick="addCharacter('S')">S</div>
+            <div class="key" onclick="addCharacter('D')">D</div>
+            <div class="key" onclick="addCharacter('F')">F</div>
+            <div class="key" onclick="addCharacter('G')">G</div>
+            <div class="key" onclick="addCharacter('H')">H</div>
+            <div class="key" onclick="addCharacter('J')">J</div>
+            <div class="key" onclick="addCharacter('K')">K</div>
+            <div class="key" onclick="addCharacter('L')">L</div>
+          <div class="key key__symbols" onclick="addCharacter(';')">
+            : <span> ;
+          </div>
+          <div class="key key__symbols" onclick="addCharacter('\'')">
+            " <span> '
+          </div>
+          <div class="key key__enter">
+            <i data-feather="corner-down-left"></i>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="key key__shift-left key__oneandhalf key__shift" onclick="toggleShift()">
+                Shift<!-- <i data-feather="arrow-up-circle"></i> -->
+            </div>
+            <div class="key" onclick="addCharacter('z')">Z</div>
+            <div class="key" onclick="addCharacter('x')">X</div>
+            <div class="key" onclick="addCharacter('c')">C</div>
+            <div class="key" onclick="addCharacter('v')">V</div>
+            <div class="key" onclick="addCharacter('b')">B</div>
+            <div class="key" onclick="addCharacter('n')">N</div>
+            <div class="key" onclick="addCharacter('m')">M</div>
+            <div class="key key__symbols" onclick="addCharacter(',')">
+                > <span> .
+            </div>
+            <div class="key key__symbols" onclick="addCharacter('.')">
+                < <span> .
+            </div>
+            <div class="key key__symbols" onclick="addCharacter('/')">
+                ? <span> /
+            </div>
+            <div class="key key__caps" onclick="toggleCapsLock()">
+                <!-- CapsLock -->
+                <i data-feather="arrow-up-circle"></i>
+            </div>
+            <div class="key key__arrow" >
+                <i data-feather="arrow-up"></i>
+            </div>
+            <div class="key" onclick="clearKeyboard()">
+                <!-- clr<i data-feather="trash-2"></i> -->
+                 Clear
+            </div>
+        </div>
+            
+        <div class="row">
+          <div class="key key__bottom-funct key__shiftlock" onclick='Toggle_Shift_Lock()''>
+            Shift-Lock
+          </div>
+          <div class="key key__bottom-funct">
+            <i data-feather="activity"></i>
+          </div>
+          <div class="key key__bottom-funct">
+            <i data-feather="command"></i>
+          </div>
+          <div class="key key__spacebar" onclick="addCharacter(' ')">
+          </div>
+          <div class="key">
+            <i data-feather="command"></i>
+          </div>
+          <div class="key">
+            <i data-feather="activity"></i>
+          </div>
+          <div class="key key__arrow">
+            <i data-feather="arrow-left"></i>
+          </div>
+          <div class="key key__arrow">
+            <i data-feather="arrow-down"></i>
+          </div>
+          <div class="key key__arrow">
+            <i data-feather="arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="main2.js"></script>
+    <!-- <script src="DraggableWindows.js"></script> -->
+
+
+</body>
+</html>

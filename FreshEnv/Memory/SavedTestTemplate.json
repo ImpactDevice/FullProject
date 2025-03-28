@@ -1,0 +1,20 @@
+{
+    "TestName": "Template",
+    "Energy": 6.8,
+    "IsCameraEnabled": "True",
+    "CameraRecordDurations": 3,
+    "CameraRecordDelay": 0,
+    "CameraFPS": 960,
+    "IsForceSensorEnable": "True",
+    "ForceSensorRecordDuration": 0,
+    "IsDisplacementSensorEnabled": "True",
+    "DisplacementSensorRecordDuration": 0,
+    "IsSphere": "True",
+    "IsSlug": "False",
+    "Mass": 10,
+    "IsDebugMode": "False",
+    "IsCustomCoefficients": "False",
+    "CustomFrictionCoef": 0,
+    "CustomZ_Stepper": 0,
+    "CustomKalmanFilterVar": 0
+}

@@ -1,0 +1,19 @@
+{
+	"Test-Settings": {
+		"Test-Name": "trail2",
+		"Impact-Energy": "3",
+		"Mass-Options": "Sphere",
+		"Custom-Mass": "",
+		"Enable-Camera": "on",
+		"FPS-Options": "960",
+		"Camera-Delay": "",
+		"Enable-Force-Sensor": "on"
+	},
+	"Data-Info": {
+		"Impact-Energy": "12",
+		"Max-Force": "100"
+	}
+		
+	
+	
+}

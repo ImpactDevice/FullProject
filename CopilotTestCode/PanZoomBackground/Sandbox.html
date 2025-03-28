@@ -1,0 +1,101 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Device</title>
+    <!-- <link rel="stylesheet" href="DraggebleWindows.css"> -->
+    
+    <link rel="stylesheet" href="./FreshEnv/public/ScrollFrame.css">
+    
+    <link rel="stylesheet" href="./Temp.css">
+    <!-- <link rel="stylesheet" href="./FreshEnv/public/DisplayData.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+<body>
+    <div id="VDF-1-DD-Top" class="Top">
+        <div id="Data-Container">
+            <!-- <div id="Video-Window" class="Window draggable resizable">
+                <div class="Drag-Handle"></div>
+                <div class="Window-Body">
+                    <div id="Video-Div" class="panel">
+        
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- <div id="Distance-Window" class="Window draggable resizable">
+                <div class="Drag-Handle"></div>
+                <div class="Window-Body">
+                    <div id='Distance-Container' class="panel">
+                        <div id="Energy-Value" class="Data-Text">Temp: none</div>
+                    </div>
+                </div>
+            </div> -->
+            <div id="Energy-Window" class="Window draggable resizable">
+                <div class="Drag-Handle">
+                    <button class="Minimize-Data-Window-Btn" onclick="MinimizeDataWindow('Energy-Window')">_</button>
+                    <button class="Fullscreen-Data-Window-Btn" onclick="FullscreenDataWindow('Energy-Window')">[]</button>
+                    <button class="Close-Data-Window-Btn" onclick="CloseDataWindow('Energy-Window')">X</button>
+                </div>
+                <div class="Window-Body">
+                    <div id="Energy-Container" class="panel">
+                        <!-- <div id="Energy-Value" class="Data-Text">Max: 200N</div> -->
+                        <canvas id="myEnergyChart"></canvas>
+                        <!-- <div id="Spacer"></div> -->
+                    </div>
+                </div>
+                <div class="Window-Footer">
+                    <input id="Energy-Start-Graph-Input"  class="Input-Value-Style-2" placeholder="Range Start" readonly onclick="showNumberPad('Energy-Start-Graph-Input')">
+                    <input id="Energy-End-Graph-Input"  class="Input-Value-Style-2" placeholder="Range End" readonly onclick="showNumberPad('Energy-End-Graph-Input')">
+                    <button id="Energy-Graph-Range-Enter" class="Graph-Range-Btn" onclick="ChangeGraphRange('Energy-Graph')">Enter</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id='Data-Display-Footer'>
+            <button id="Change-Data-Display-Type-Btn" >Change Data Display</button>
+            <button id="Close-DisplayData-Btn" class="Data-Display-Close-Btn">Close Display</button>
+        </div>
+    </div>
+
+    <script src="Temp.js"></script>
+</body>

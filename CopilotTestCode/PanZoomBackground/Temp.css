@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-color);
+}
+
+
+
+
+#VDF-1-DD-Top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+
+    /* New Testing Scrolling */
+    margin: 0px;
+    padding: 0px;
+    overflow:hidden;
+}
+
+
+#Data-Container {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; */
+    width: 100%;
+    height: 90%;
+}
+
+#Data-Display-Footer {
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.draggable {
+    /* display: none; */
+    width: 400px;
+    height: 300px;
+    background-color: lightblue;
+    border: 0px solid #000;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+}
+
+#Energy-Window {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* #Energy-Window::-webkit-scrollbar {
+    display: none;             
+} */
+
+.Drag-Handle {
+    background-color: darkblue;
+    color: white;
+    padding: 1px; /* Add padding to ensure visibility */
+    cursor: move;
+    width: 100%;
+    height: 5%;
+    min-height: 15px;
+
+    /* For managing Window Btns */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Drag-Handle button {
+    height: 95%;
+    min-height: 15px;
+    /* padding: 1px; */
+}
+
+.resizable {
+    resize: both;
+    overflow: hidden;
+}
+
+
+.Window-Body {
+    /* height: calc(90% - 15px); */
+    height: 85%;
+    width: 100%;
+    background-color: rgb(227, 198, 255);
+}
+
+.panel {
+    height: 100%;
+    width: 100%;
+    align-items:stretch;
+}
+
+.Data-Text {
+    height: 10%;
+    width: 100%;
+}
+
+.panel canvas {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5%;
+    /* object-fit: cover; */
+}
+
+#Spacer {
+    width: 100%;
+    height: 50%;
+}
+
+.Window-Footer {
+    padding: 0px;
+    margin: 0px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    background-color: chocolate;
+}
+
+.Window-Footer input {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 1%;
+    height: 70%;
+    width: 30%;
+}
+
+.Window-Footer button {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 1%;
+    height: 70%;
+    width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Data-Display-Footer {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    height: 7%;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+#Data-Display-Footer button { 
+    height: 90%;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
