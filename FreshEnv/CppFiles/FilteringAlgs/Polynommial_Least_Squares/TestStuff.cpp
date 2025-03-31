@@ -3,6 +3,36 @@
 #include <vector>
 #include <Eigen/Dense>
 
+
+// #include <iostream>
+// #include <fstream>
+// #include <nlohmann/json.hpp>
+
+// using json = nlohmann::json;
+
+// int main() {
+//     // Create a JSON object
+//     json jsonObject;
+//     jsonObject["name"] = "John Doe";
+//     jsonObject["age"] = 30;
+//     jsonObject["city"] = "New York";
+
+//     // Convert JSON object to string
+//     std::string jsonString = jsonObject.dump();
+
+//     // Write JSON string to a file
+//     std::ofstream outFile("output.json");
+//     if (outFile.is_open()) {
+//         outFile << jsonString;
+//         outFile.close();
+//         std::cout << "JSON file created successfully!" << std::endl;
+//     } else {
+//         std::cerr << "Unable to open file for writing." << std::endl;
+//     }
+
+//     return 0;
+// }
+
 // Function to calculate the derivative of the polynomial
 Eigen::VectorXd calculateDerivative(const Eigen::VectorXd& coefficients) {
     int degree = coefficients.size() - 1;
